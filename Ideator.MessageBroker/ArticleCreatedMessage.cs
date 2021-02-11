@@ -16,7 +16,7 @@ namespace Ideator.MessageBroker
 
         public override string ToString()
         {
-            return $"Article {_article.Title.Value} created";
+            return $"Article >>{_article.Title.Value}<< created";
         }
     }
 }

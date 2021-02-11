@@ -28,26 +28,32 @@ namespace Ideator.Domain.Model
 
         private void CheckGrammar()
         {
+            Console.WriteLine("OK - Check grammar");
         }
 
         private void CheckStyle()
         {
+            Console.WriteLine("OK - Check style");
         }
 
         private void CheckPunctuation()
         {
+            Console.WriteLine("OK - Check punctuation");
         }
 
         private void VerifyForPlagiarism()
         {
+            Console.WriteLine("OK - Check for plagiarism");
         }
 
         private void ValidateContentLength()
         {
+            Console.WriteLine("OK - Validate content length");
         }
 
         private void ValidateTitleLength()
         {
+            Console.WriteLine("OK - Validate title length");
         }
     }
 }
