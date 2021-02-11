@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Ideator.Domain.Model;
 
 namespace Ideator.Domain.Ports
@@ -18,22 +20,22 @@ namespace Ideator.Domain.Ports
             _eventPublisher = eventPublisher;
         }
 
+        public Article Get(ArticleId id)
+        {
+            var article = _articleRepository.GetById(id);
+            
+            _eventPublisher.PublishRetrievalOf(article);
+            return article;
+        }
+
         public ArticleId Create(AuthorId authorId, Title title, Content content)
         {
-            var author = _authorRepository.Get(authorId);
-            var article = _articleRepository.Save(author, title, content);
+            var article = _articleRepository.Insert(authorId, title, content);
 
             article.ValidateEligibilityForPublication();
 
             _eventPublisher.PublishCreationOf(article);
             return article.Id;
-        }
-
-        public Article Get(ArticleId id)
-        {
-            var article = _articleRepository.Get(id);
-            _eventPublisher.PublishRetrievalOf(article);
-            return article;
         }
     }
 }

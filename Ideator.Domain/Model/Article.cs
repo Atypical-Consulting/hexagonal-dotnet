@@ -1,19 +1,22 @@
+using System;
+
 namespace Ideator.Domain.Model
 {
     public sealed class Article
     {
-        public Article(ArticleId id, Title title, Content content, Author author)
+        public Article(ArticleId id, AuthorId authorId, Title title, Content content)
         {
             Id = id;
+            AuthorId = authorId;
             Title = title;
             Content = content;
-            Author = author;
         }
 
         public ArticleId Id { get; }
         public Title Title { get; }
         public Content Content { get; }
-        public Author Author { get; }
+        public AuthorId AuthorId { get; }
+        public Author? Author { get; set; }
 
         public void ValidateEligibilityForPublication()
         {

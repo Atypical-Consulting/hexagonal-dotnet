@@ -27,7 +27,7 @@ namespace Ideator.API.Controllers
             [FromRoute] [Required] Guid articleId)
         {
             var id = new ArticleId(articleId);
-            
+
             var articleResponse = _articles.Get(id);
 
             return Ok(articleResponse);
@@ -46,10 +46,10 @@ namespace Ideator.API.Controllers
                 new Title(title),
                 new Content(content),
                 new AuthorId(authorId));
-            
+
             var articleIdResponse = _articles.Create(createArticleRequest);
 
-            return Ok(articleIdResponse); 
+            return Ok(articleIdResponse);
         }
     }
 }

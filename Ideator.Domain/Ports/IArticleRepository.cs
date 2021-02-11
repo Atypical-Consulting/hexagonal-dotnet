@@ -1,10 +1,11 @@
+using Ideator.Domain.Common;
 using Ideator.Domain.Model;
 
 namespace Ideator.Domain.Ports
 {
     public interface IArticleRepository
+        : IRepository<ArticleId, Article>
     {
-        Article Save(Author author, Title title, Content content);
-        Article Get(ArticleId id);
+        Article Insert(AuthorId authorId, Title title, Content content);
     }
 }

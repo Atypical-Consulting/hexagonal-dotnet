@@ -15,11 +15,12 @@ namespace Ideator.CLI
         {
             RegisterServices();
             Run();
-            DisposeServices();
 
             Console.WriteLine();
             Console.WriteLine("Type enter to exit...");
             Console.ReadLine();
+            
+            DisposeServices();
         }
 
         private static void Run()
@@ -45,9 +46,11 @@ namespace Ideator.CLI
 
         private static void GetArticleById()
         {
-            // we generate a random author id for the sake of simplicity
-            var articleId = new ArticleId(Guid.NewGuid());
             Console.WriteLine("\n");
+            
+            Console.Write("Id       : ");
+            var rawId = Console.ReadLine()?.Trim();
+            var articleId = new ArticleId(Guid.Parse(rawId));
 
             var articleResponse = _articles.Get(articleId);
 
@@ -60,12 +63,12 @@ namespace Ideator.CLI
 
             Console.Write("Title    : ");
             var title = Console.ReadLine()?.Trim();
-            
+
             Console.Write("Content  : ");
             var content = Console.ReadLine()?.Trim();
 
             // we generate a random author id for the sake of simplicity
-            var authorId = Guid.NewGuid();
+            var authorId = Guid.Parse("5F78060C-52EF-4190-A23A-B3F755A7DE28");
             Console.Write($"Author ID: {authorId}");
             Console.WriteLine("\n");
 
@@ -73,7 +76,7 @@ namespace Ideator.CLI
                 new Title(title),
                 new Content(content),
                 new AuthorId(authorId));
-            
+
             var articleIdResponse = _articles.Create(createArticleRequest);
 
             Console.WriteLine(articleIdResponse);
@@ -84,7 +87,7 @@ namespace Ideator.CLI
             _serviceProvider = new ServiceCollection()
                 .ConfigureDomainServices()
                 .BuildServiceProvider();
-            
+
             _articles = _serviceProvider
                 .GetRequiredService<ArticleFacade>();
         }

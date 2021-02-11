@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Ideator.Application.Article;
 using Ideator.ArticleDb;
+using Ideator.ArticleDb.Repositories;
 using Ideator.AuthorService;
 using Ideator.Domain;
 using Ideator.Domain.Ports;
@@ -16,10 +17,10 @@ namespace Ideator.Application
         public static IServiceCollection ConfigureDomainServices(this IServiceCollection services)
         {
             return services
-                .AddScoped<IArticleRepository, DbArticleRepository>()
+                .AddScoped<IdeatorContext>()
+                .AddScoped<IArticleRepository, ArticleRepository>()
                 .AddScoped<IAuthorRepository, ExternalServiceClientAuthorRepository>()
                 .AddScoped<IArticleMessageSender, MessageBrokerArticleMessageSender>()
-                
                 .AddScoped<TwitterClient>()
                 .AddScoped<TwitterArticlePublisher>()
                 .AddScoped(
@@ -27,7 +28,6 @@ namespace Ideator.Application
                     {
                         provider.GetService<TwitterArticlePublisher>()
                     })
-
                 .AddScoped<AuthorMailNotifier>()
                 .AddScoped<AuthorSmsNotifier>()
                 .AddScoped(
@@ -36,7 +36,6 @@ namespace Ideator.Application
                         provider.GetService<AuthorMailNotifier>(),
                         provider.GetService<AuthorSmsNotifier>()
                     })
-
                 .AddScoped<ArticlePublisher>()
                 .AddScoped<ArticleService>()
                 .AddScoped<ArticleFacade>();

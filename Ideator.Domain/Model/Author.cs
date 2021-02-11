@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Ideator.Domain.Model
 {
     public sealed class Author
@@ -10,5 +12,7 @@ namespace Ideator.Domain.Model
 
         public AuthorId Id { get; }
         public PersonName Name { get; }
+        
+        public ICollection<Article> Articles { get; }
     }
 }
