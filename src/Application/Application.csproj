@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Ideator.Application</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Infrastructure.ArticleDb\Infrastructure.ArticleDb.csproj" />
+      <ProjectReference Include="..\Infrastructure.AuthorService\Infrastructure.AuthorService.csproj" />
+      <ProjectReference Include="..\Infrastructure.MessageBroker\Infrastructure.MessageBroker.csproj" />
+      <ProjectReference Include="..\Infrastructure.Notifications\Infrastructure.Notifications.csproj" />
+      <ProjectReference Include="..\Infrastructure.SocialMedia\Infrastructure.SocialMedia.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    </ItemGroup>
+
+</Project>
