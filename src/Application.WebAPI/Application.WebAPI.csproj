@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Ideator.API</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -9,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Ideator.Application\Ideator.Application.csproj" />
+      <ProjectReference Include="..\Application\Application.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,9 @@
+using System;
 using Ideator.ArticleDb.Configuration;
 using Ideator.Domain.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 namespace Ideator.ArticleDb
 {
@@ -16,7 +19,15 @@ namespace Ideator.ArticleDb
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite("Data Source=ideator.db");
+            options
+                .LogTo(
+                    Console.WriteLine,
+                    (eventId, logLevel) =>
+                        logLevel >= LogLevel.Information ||
+                        eventId == RelationalEventId.ConnectionOpened ||
+                        eventId == RelationalEventId.ConnectionClosed)
+                .EnableSensitiveDataLogging()
+                .UseSqlite("Data Source=ideator.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

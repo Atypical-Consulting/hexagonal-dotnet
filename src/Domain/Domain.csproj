@@ -2,10 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Ideator.Domain</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Ideator.Domain\Ideator.Domain.csproj" />
-    </ItemGroup>
 
 </Project>

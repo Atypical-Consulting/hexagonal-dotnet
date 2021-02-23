@@ -2,11 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Ideator.ArticleDb</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Ideator.Domain\Ideator.Domain.csproj" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
@@ -14,6 +11,10 @@
         <PrivateAssets>all</PrivateAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
 
 </Project>

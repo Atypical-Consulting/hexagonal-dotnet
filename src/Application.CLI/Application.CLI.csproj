@@ -3,6 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Ideator.CLI</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -10,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Ideator.Application\Ideator.Application.csproj" />
+      <ProjectReference Include="..\Application\Application.csproj" />
     </ItemGroup>
 
 </Project>
