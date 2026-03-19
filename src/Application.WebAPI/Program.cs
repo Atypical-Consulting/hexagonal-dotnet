@@ -1,19 +1,8 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+using Ideator.API.Modules;
+using TheAppManager.Startup;
 
-namespace Ideator.API
+AppManager.Start(args, modules =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-        }
-    }
-}
+    modules.Add<DomainServicesModule>();
+    modules.Add<WebApiModule>();
+});
