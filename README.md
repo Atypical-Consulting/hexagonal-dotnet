@@ -1,3 +1,5 @@
+![hexagonal-dotnet banner](.github/banner.png)
+
 # hexagonal-dotnet
 
 > **A production-ready reference implementation of Hexagonal Architecture (Ports & Adapters) in .NET, demonstrating clean separation between domain, application, and infrastructure layers.**
