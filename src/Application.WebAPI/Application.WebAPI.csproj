@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
       <PackageReference Include="TheAppManager" Version="2.0.0" />
     </ItemGroup>
 
